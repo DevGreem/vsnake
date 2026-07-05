@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bq85cmeiuengn"]
+
+[ext_resource type="Script" uid="uid://bor12sd05l4rl" path="res://scenes/win_menu/win_menu.gd" id="1_hjhas"]
+[ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="1_q0e8x"]
+
+[node name="Win" type="CenterContainer" unique_id=2051695112]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjhas")
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=2123261851]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container" unique_id=1648875885]
+layout_mode = 2
+text = "Player {0} wins!"
+
+[node name="Exit" type="Button" parent="Container" unique_id=2131233742]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit"
+script = ExtResource("1_q0e8x")
+scene_dir = "res://scenes/main/main.tscn"

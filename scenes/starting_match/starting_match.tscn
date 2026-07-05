@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://hbi8koechtqg"]
+
+[ext_resource type="StyleBox" uid="uid://crmyxk27f1486" path="res://scenes/starting_match/label_option.tres" id="1_taxuf"]
+[ext_resource type="Script" uid="uid://dq378mmxuj3pe" path="res://scenes/starting_match/start_match.gd" id="2_egn5x"]
+[ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="3_akp7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obaep"]
+bg_color = Color(0.2, 0.6431373, 0.23921569, 1)
+
+[node name="StartingMatch" type="Panel" unique_id=1324045694]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_obaep")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=853877795]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="VBoxContainer" parent="CenterContainer" unique_id=1996033292]
+layout_mode = 2
+
+[node name="MaxFood" type="HBoxContainer" parent="CenterContainer/Options" unique_id=1461655523]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Options/MaxFood" unique_id=241006854]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_taxuf")
+text = "Maximum amount of food at one time:"
+horizontal_alignment = 2
+
+[node name="Value" type="SpinBox" parent="CenterContainer/Options/MaxFood" unique_id=984319482]
+layout_mode = 2
+min_value = 1.0
+max_value = 256.0
+value = 1.0
+rounded = true
+alignment = 1
+
+[node name="TimeFood" type="HBoxContainer" parent="CenterContainer/Options" unique_id=2108499707]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Options/TimeFood" unique_id=179569489]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("1_taxuf")
+text = "Time to summon new food:"
+horizontal_alignment = 2
+
+[node name="Value" type="SpinBox" parent="CenterContainer/Options/TimeFood" unique_id=451965061]
+layout_mode = 2
+step = 0.001
+value = 1.0
+alignment = 1
+
+[node name="Choose" type="HBoxContainer" parent="CenterContainer/Options" unique_id=1025554503]
+layout_mode = 2
+
+[node name="StartMatch" type="Button" parent="CenterContainer/Options/Choose" unique_id=1785371070]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start Match"
+script = ExtResource("2_egn5x")
+
+[node name="Return" type="Button" parent="CenterContainer/Options/Choose" unique_id=419320190]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Return
+"
+script = ExtResource("3_akp7j")
+scene_dir = "uid://c07ksw6gvqpn7"

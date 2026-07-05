@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="FoodInfo" format=3 uid="uid://cp7xankkn0ppp"]
+
+[ext_resource type="Script" uid="uid://dutcph1e7x8pt" path="res://resources/boost_info.gd" id="1_6rvjs"]
+[ext_resource type="Script" uid="uid://b3otvvj43srcf" path="res://resources/food_info.gd" id="1_de8m7"]
+[ext_resource type="Texture2D" uid="uid://c2vdeg0pr3erg" path="res://content/food/broccoli/broccoli.png" id="2_pa176"]
+
+[sub_resource type="Resource" id="Resource_6rvjs"]
+script = ExtResource("1_6rvjs")
+boost_time = 3.0
+speed_boost = 0.35
+metadata/_custom_type_script = "uid://dutcph1e7x8pt"
+
+[resource]
+script = ExtResource("1_de8m7")
+id = "broccoli"
+name = "Broccoli"
+texture = ExtResource("2_pa176")
+length = -2
+boost = SubResource("Resource_6rvjs")
+metadata/_custom_type_script = "uid://b3otvvj43srcf"

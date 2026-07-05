@@ -25,8 +25,17 @@ func _initialize():
 func eat(snake: SnakeNode) -> void:
 	on_eated.emit()
 	
-	for i in range(info.length):
-		snake.body.push_back(snake.body.back())
+	if info.length >= 0:
+		for i in range(info.length):
+			snake.body.push_back(snake.body.back())
+	else:
+		for i in range(abs(info.length)):
+			
+			if snake.body.size() <= 1:
+				break
+			
+			snake.erase_cell(snake.body.back())
+			snake.body.pop_back()
 	
 	if info.boost:
 		snake.boosts.append(info.boost)

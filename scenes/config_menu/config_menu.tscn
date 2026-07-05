@@ -1,20 +1,109 @@
 [gd_scene format=3 uid="uid://b7kct2ajmk2l4"]
 
-[ext_resource type="Script" uid="uid://c80wrk33ll4ft" path="res://scenes/config_menu/config_menu.gd" id="1_t3335"]
+[ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="2_hg4ol"]
+[ext_resource type="PackedScene" uid="uid://babh73di4xcv0" path="res://scenes/key/key.tscn" id="3_m4br8"]
 
-[node name="ConfigMenu" type="Control" unique_id=408256368]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obaep"]
+bg_color = Color(0.2, 0.6431373, 0.23921569, 1)
+
+[node name="ConfigMenu" type="PanelContainer" unique_id=853238601]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t3335")
+theme_override_styles/panel = SubResource("StyleBoxFlat_obaep")
 
-[node name="Options" type="VBoxContainer" parent="." unique_id=201523968]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2058755935]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1989555298]
+layout_mode = 2
+
+[node name="BluePlayer" type="VBoxContainer" parent="CenterContainer/HBoxContainer" unique_id=829521793]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/BluePlayer" unique_id=172762159]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Blue Player"
+horizontal_alignment = 1
+
+[node name="Key" parent="CenterContainer/HBoxContainer/BluePlayer" unique_id=1742768489 instance=ExtResource("3_m4br8")]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+key = 87
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/BluePlayer" unique_id=203000597]
+layout_mode = 2
+
+[node name="Key" parent="CenterContainer/HBoxContainer/BluePlayer/HBoxContainer" unique_id=266346128 instance=ExtResource("3_m4br8")]
+layout_mode = 2
+key = 65
+
+[node name="Key2" parent="CenterContainer/HBoxContainer/BluePlayer/HBoxContainer" unique_id=824544516 instance=ExtResource("3_m4br8")]
+layout_mode = 2
+key = 83
+
+[node name="Key3" parent="CenterContainer/HBoxContainer/BluePlayer/HBoxContainer" unique_id=2003110549 instance=ExtResource("3_m4br8")]
+layout_mode = 2
+key = 68
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/HBoxContainer" unique_id=772240936]
+layout_mode = 2
+
+[node name="RedPlayer" type="VBoxContainer" parent="CenterContainer/HBoxContainer" unique_id=1280960191]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/RedPlayer" unique_id=1512494693]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Red Player"
+horizontal_alignment = 1
+
+[node name="Key" parent="CenterContainer/HBoxContainer/RedPlayer" unique_id=1530117101 instance=ExtResource("3_m4br8")]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+key = 4194320
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/RedPlayer" unique_id=1177449856]
+layout_mode = 2
+
+[node name="Key" parent="CenterContainer/HBoxContainer/RedPlayer/HBoxContainer" unique_id=155982417 instance=ExtResource("3_m4br8")]
+layout_mode = 2
+key = 4194319
+
+[node name="Key2" parent="CenterContainer/HBoxContainer/RedPlayer/HBoxContainer" unique_id=472550226 instance=ExtResource("3_m4br8")]
+layout_mode = 2
+key = 4194322
+
+[node name="Key3" parent="CenterContainer/HBoxContainer/RedPlayer/HBoxContainer" unique_id=1087952339 instance=ExtResource("3_m4br8")]
+layout_mode = 2
+key = 4194321
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=787433561]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="Title" type="HBoxContainer" parent="MarginContainer" unique_id=3083210]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/Title" unique_id=615580327]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Return"
+script = ExtResource("2_hg4ol")
+scene_dir = "uid://c07ksw6gvqpn7"
+
+[node name="Label" type="Label" parent="MarginContainer/Title" unique_id=1024427628]
+layout_mode = 2
+size_flags_horizontal = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(-50, 0)
+text = "Controls"
+horizontal_alignment = 1

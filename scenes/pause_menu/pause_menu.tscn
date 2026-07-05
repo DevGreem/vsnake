@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dghkt4yd1na7r"]
+
+[ext_resource type="Script" uid="uid://cp6j7msnh18bt" path="res://scenes/pause_menu/pause_menu.gd" id="1_qcmsd"]
+[ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="2_10tpt"]
+
+[node name="Pause" type="CenterContainer" unique_id=659036178]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qcmsd")
+
+[node name="Menu" type="VBoxContainer" parent="." unique_id=1615907699]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu" unique_id=658189174]
+layout_mode = 2
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="Container" type="HBoxContainer" parent="Menu" unique_id=1258541574]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="Menu/Container" unique_id=52995204]
+layout_mode = 2
+text = "Continue"
+
+[node name="Exit" type="Button" parent="Menu/Container" unique_id=569487440]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("2_10tpt")
+scene_dir = "res://scenes/main/main.tscn"

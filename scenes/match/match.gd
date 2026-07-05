@@ -16,7 +16,7 @@ var players: Dictionary[int, SnakeNode] = {}
 @onready var table: TableNode = $"Map/Table"
 
 @onready var pause_menu: CenterContainer = $CanvasLayer/Pause
-@onready var win_menu: CenterContainer = $CanvasLayer/Win
+@onready var win_menu: WinMenuNode = $CanvasLayer/Win
 
 
 #TODO: Add functionality to "Continue" button on pause game
@@ -82,7 +82,13 @@ func _process(_delta):
 	if players.size() <= 1:
 		ended = true
 		pause()
-		win_menu.show()
+		
+		if players.size() == 0:
+			win_menu.win(-1)
+		else:
+			win_menu.win(players[players.keys()[0]].player)
+		
+		return
 	
 	for id in players:
 		var snake := players[id]
@@ -93,8 +99,24 @@ func _process(_delta):
 			
 			var snake2 := players[id2]
 			
-			if snake.body.front() in snake2.body:
-				snake.die()
+			var snake_front = snake.body.front()
+			
+			if snake_front in snake2.body:
+				
+				if snake_front == snake2.body.front():
+					
+					var snake_size = snake.body.size()
+					var snake2_size = snake2.body.size()
+					
+					if snake_size < snake2_size:
+						snake.die()
+					elif snake_size > snake2_size:
+						snake2.die()
+					else:
+						snake.die()
+						snake2.die()
+				else:
+					snake.die()
 
 func _on_die_snake(id: int) -> void:
 	players.erase(id)

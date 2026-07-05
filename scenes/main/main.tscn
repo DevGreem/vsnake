@@ -2,33 +2,104 @@
 
 [ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="1_iuonh"]
 [ext_resource type="Script" uid="uid://cbtana15ah3cv" path="res://scenes/main/exit.gd" id="2_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://ciae88ieev2l6" path="res://scenes/match/match.tscn" id="2_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://b7kct2ajmk2l4" path="res://scenes/config_menu/config_menu.tscn" id="3_l3cfh"]
+[ext_resource type="Texture2D" uid="uid://dpx8fqr8h3nxu" path="res://content/letters/v.png" id="5_ow5a4"]
+[ext_resource type="Texture2D" uid="uid://b7n7djuj2e8ye" path="res://content/letters/s.png" id="6_hujxm"]
+[ext_resource type="Texture2D" uid="uid://b5wd6q3kov5kw" path="res://content/letters/a.png" id="7_hujxm"]
+[ext_resource type="Texture2D" uid="uid://b21pio87rtto3" path="res://content/letters/n.png" id="7_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://hbi8koechtqg" path="res://scenes/starting_match/starting_match.tscn" id="8_a8run"]
+[ext_resource type="Texture2D" uid="uid://mrah35idu74a" path="res://content/letters/k.png" id="9_b1x3f"]
+[ext_resource type="Texture2D" uid="uid://bc2cnrgu5fq20" path="res://content/letters/e.png" id="10_a8run"]
 
-[node name="Main" type="CenterContainer" unique_id=1076167707]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obaep"]
+bg_color = Color(0.2, 0.6431373, 0.23921569, 1)
+
+[node name="Main" type="PanelContainer" unique_id=87237393]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_obaep")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=522983522]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=126884770]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=872085796]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="V" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=2133000893]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+texture = ExtResource("5_ow5a4")
+
+[node name="S" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=10735078]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.25, 2.25)
+texture = ExtResource("6_hujxm")
+
+[node name="N" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1206043049]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.2, 2.2)
+texture = ExtResource("7_yyfjg")
+
+[node name="A" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1532844358]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.9, 1.9)
+texture = ExtResource("7_hujxm")
+
+[node name="K" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=291968547]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-5, 2)
+offset_transform_scale = Vector2(1.75, 1.3)
+texture = ExtResource("9_b1x3f")
+
+[node name="E" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=658784501]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-40, 4)
+offset_transform_scale = Vector2(1.2, 1.25)
+texture = ExtResource("10_a8run")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2025526229]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=1629369579]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=522983522]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1629369579]
 layout_mode = 2
 text = "Play
 "
 script = ExtResource("1_iuonh")
-scene = ExtResource("2_l3cfh")
+scene = ExtResource("8_a8run")
 
-[node name="Configurations" type="Button" parent="VBoxContainer" unique_id=1935476634]
+[node name="Configurations" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1935476634]
 layout_mode = 2
-text = "Configurations"
+text = "Controls"
 script = ExtResource("1_iuonh")
 scene = ExtResource("3_l3cfh")
 
-[node name="Exit" type="Button" parent="VBoxContainer" unique_id=316668870]
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=316668870]
 layout_mode = 2
 text = "Exit Game"
 script = ExtResource("2_k2fmo")
