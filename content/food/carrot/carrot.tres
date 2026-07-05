@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dutcph1e7x8pt" path="res://resources/boost_info.gd" id="1_dxxnu"]
 [ext_resource type="Script" uid="uid://b3otvvj43srcf" path="res://resources/food_info.gd" id="1_vqe6u"]
+[ext_resource type="Texture2D" uid="uid://vhd0qeswqol2" path="res://content/food/carrot/carrot.png" id="3_k54go"]
 
 [sub_resource type="Resource" id="Resource_vqe6u"]
 script = ExtResource("1_dxxnu")
-boost_time = 5.0
+boost_time = 2.5
 speed_boost = 0.5
 metadata/_custom_type_script = "uid://dutcph1e7x8pt"
 
@@ -13,5 +14,6 @@ metadata/_custom_type_script = "uid://dutcph1e7x8pt"
 script = ExtResource("1_vqe6u")
 id = "carrot"
 name = "Carrot"
+texture = ExtResource("3_k54go")
 boost = SubResource("Resource_vqe6u")
 metadata/_custom_type_script = "uid://b3otvvj43srcf"

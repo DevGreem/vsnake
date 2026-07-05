@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="FoodInfo" format=3 uid="uid://b8hey2bfm5lwy"]
+
+[ext_resource type="Script" uid="uid://b3otvvj43srcf" path="res://resources/food_info.gd" id="1_sjw5m"]
+[ext_resource type="Script" uid="uid://dutcph1e7x8pt" path="res://resources/boost_info.gd" id="1_u8rq6"]
+[ext_resource type="Texture2D" uid="uid://6fwxvas3clra" path="res://content/food/pineapple/pineapple.png" id="3_pgehc"]
+
+[sub_resource type="Resource" id="Resource_8eoyv"]
+script = ExtResource("1_u8rq6")
+boost_time = 2.0
+speed_boost = 1.25
+metadata/_custom_type_script = "uid://dutcph1e7x8pt"
+
+[resource]
+script = ExtResource("1_sjw5m")
+id = "pineapple"
+name = "Pinneaple"
+texture = ExtResource("3_pgehc")
+length = 2
+boost = SubResource("Resource_8eoyv")
+metadata/_custom_type_script = "uid://b3otvvj43srcf"

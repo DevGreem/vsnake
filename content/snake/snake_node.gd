@@ -53,9 +53,11 @@ func _process(delta: float):
 
 	if move_timer <= 0:
 		update_body()
-		move_timer = get_time(delta)
+		move_timer = get_time()
 	else:
 		move_timer -= delta
+	
+	_process_boosts(delta)
 
 func update_body() -> void:
 	print("updated Snake " + str(player))
@@ -83,12 +85,11 @@ func update_body() -> void:
 	print("Axis: ", get_axis())
 	print("Body: ", body)
 	
-	body.pop_back()
-	
 	if front in body:
-		self.queue_free()
+		self.die()
 		return
 	
+	body.pop_back()
 	body.push_front(front)
 
 func eat() -> void:
@@ -139,19 +140,22 @@ func die() -> void:
 	on_die.emit(player)
 	self.queue_free()
 
-func get_time(delta: float) -> float:
+func get_time() -> float:
 	
 	var new_time = speed
 	
-	for i in range(boosts.size()):
-		var boost := boosts[i]
-		
-		if boost.boost_time <= 0:
-			boosts.erase(i)
-			continue
-		
-		boost.boost_time -= delta
+	for boost in boosts:
 		
 		new_time *= boost.speed_boost
 	
 	return new_time
+
+func _process_boosts(delta) -> void:
+	
+	for boost in boosts:
+		
+		if boost.boost_time <= 0:
+			boosts.erase(boost)
+			continue
+		
+		boost.boost_time -= delta
