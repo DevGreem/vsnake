@@ -30,6 +30,9 @@ func _process(delta: float):
 		var food_info: FoodInfo = FOODS_DATABASE.load_entry(IDS.pick_random()).duplicate()
 		var pos := Vector2i(randi_range(1, 38), randi_range(1, 21))
 		
+		while pos in foods:
+			pos = Vector2i(randi_range(1, 38), randi_range(1, 21))
+		
 		var food := FoodNode.new()
 		food.info = food_info
 		food.table_position = pos

@@ -17,7 +17,7 @@ var players: Dictionary[int, SnakeNode] = {}
 
 @onready var pause_menu: CenterContainer = $CanvasLayer/Pause
 @onready var win_menu: WinMenuNode = $CanvasLayer/Win
-
+@onready var enter: Label = $CanvasLayer/CenterContainer/Enter
 
 #TODO: Add functionality to "Continue" button on pause game
 #TODO: Add change label text on end the match
@@ -61,6 +61,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("ui_accept"):
 			resume()
 			started = true
+			enter.hide()
 		
 		return
 	

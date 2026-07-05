@@ -25,6 +25,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/HBoxContainer/BluePlayer" unique_id=172762159]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.16862746, 0.1254902, 0.9882353, 1)
 theme_override_font_sizes/font_size = 24
 text = "Blue Player"
 horizontal_alignment = 1
@@ -58,6 +59,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/HBoxContainer/RedPlayer" unique_id=1512494693]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99999994, 0.04050286, 0.022352692, 1)
 theme_override_font_sizes/font_size = 24
 text = "Red Player"
 horizontal_alignment = 1

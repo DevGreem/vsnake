@@ -12,6 +12,17 @@ entities = NodePath("Entities")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1827146787]
 
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=89372183]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enter" type="Label" parent="CanvasLayer/CenterContainer" unique_id=40982593]
+layout_mode = 2
+text = "Press Enter To Start!"
+
 [node name="Pause" parent="CanvasLayer" unique_id=659036178 node_paths=PackedStringArray("match_node") instance=ExtResource("2_86swp")]
 match_node = NodePath("../..")
 
