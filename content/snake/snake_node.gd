@@ -21,6 +21,7 @@ signal on_die(id: int)
 			update_body()
 		
 @export var player: int
+var _last_update_direction: Direction
 @export var direction: Direction
 @export var speed := 0.1
 @export var move_timer: float
@@ -65,7 +66,8 @@ func update_body() -> void:
 	if body.is_empty() or not can_move:
 		return
 	
-	var front: Vector2i = body.front() + get_axis()
+	var axis := get_axis()
+	var front: Vector2i = body.front() + axis
 	
 	var tile := table.get_cell_source_id(front)
 	
@@ -73,7 +75,8 @@ func update_body() -> void:
 		die()
 		return
 	
-	self.set_cell(front, self.player, Vector2i(0, 0))
+	self.set_cell(front, 0, axis + Vector2i(1, 1))
+	self.set_cell(body.front(), 0, Vector2i(1, 1))
 	
 	var food: FoodNode = table.foods.get(front)
 	
@@ -85,12 +88,14 @@ func update_body() -> void:
 	print("Axis: ", get_axis())
 	print("Body: ", body)
 	
+	body.pop_back()
+	
 	if front in body:
 		self.die()
 		return
 	
-	body.pop_back()
 	body.push_front(front)
+	_last_update_direction = direction
 
 func eat() -> void:
 	
@@ -118,7 +123,7 @@ func _input(event: InputEvent) -> void:
 		
 		if axis != null:
 			
-			if _is_reverse_direction(axis):
+			if _is_reverse_direction(axis) or axis == _last_update_direction:
 				return
 			
 			direction = axis

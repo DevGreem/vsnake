@@ -3,10 +3,56 @@
 [ext_resource type="Script" uid="uid://do44f0fxapkb6" path="res://scenes/match/match.gd" id="1_h1ndw"]
 [ext_resource type="TileSet" uid="uid://ee3y3e7qhoq4" path="res://content/table/tileset.tres" id="1_yqfj7"]
 [ext_resource type="Script" uid="uid://sbqfh6gwx5yb" path="res://content/table/table_node.gd" id="2_h1ndw"]
+[ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="2_nudob"]
 
 [node name="Match" type="Node2D" unique_id=2111341178 node_paths=PackedStringArray("entities")]
 script = ExtResource("1_h1ndw")
 entities = NodePath("Entities")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1827146787]
+
+[node name="Pause" type="CenterContainer" parent="CanvasLayer" unique_id=2042592083]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="HBoxContainer" parent="CanvasLayer/Pause" unique_id=1751398455]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="CanvasLayer/Pause/Container" unique_id=490444639]
+layout_mode = 2
+text = "Continue"
+
+[node name="Exit" type="Button" parent="CanvasLayer/Pause/Container" unique_id=845842556]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("2_nudob")
+scene_dir = "res://scenes/main/main.tscn"
+
+[node name="Win" type="CenterContainer" parent="CanvasLayer" unique_id=1165219288]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Win" unique_id=344398149]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Win/Container" unique_id=789536221]
+layout_mode = 2
+text = "Player {player} wins!"
+
+[node name="Exit" type="Button" parent="CanvasLayer/Win/Container" unique_id=590608440]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit"
+script = ExtResource("2_nudob")
+scene_dir = "res://scenes/main/main.tscn"
 
 [node name="Map" type="Node" parent="." unique_id=625782182]
 

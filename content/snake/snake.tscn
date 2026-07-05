@@ -1,25 +1,20 @@
 [gd_scene format=3 uid="uid://babxnf087pab"]
 
-[ext_resource type="Texture2D" uid="uid://c1b0o1urbqagl" path="res://content/snake/1.png" id="1_leh86"]
+[ext_resource type="Texture2D" uid="uid://xf2vivol43km" path="res://content/snake/snake.png" id="1_leh86"]
 [ext_resource type="Script" uid="uid://dnpffxaaalfos" path="res://content/snake/snake_node.gd" id="2_643wd"]
-[ext_resource type="Texture2D" uid="uid://ebrjdoguoq7y" path="res://content/snake/2.png" id="2_a1mwf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f41ts"]
-resource_name = "1"
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_643wd"]
 texture = ExtResource("1_leh86")
 texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1u6wv"]
-resource_name = "2"
-texture = ExtResource("2_a1mwf")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+1:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ls0lq"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_f41ts")
-sources/1 = SubResource("TileSetAtlasSource_1u6wv")
+sources/0 = SubResource("TileSetAtlasSource_643wd")
 
 [node name="Snake" type="TileMapLayer" unique_id=2050118639]
 tile_set = SubResource("TileSet_ls0lq")

@@ -4,10 +4,23 @@ class_name MatchNode
 
 @export var entities: Node
 var ended := false
+var started := false
 
+const modulations: Array[Color] = [
+	Color.BLUE,
+	Color.RED,
+	Color.GREEN,
+	Color.YELLOW
+]
 var players: Dictionary[int, SnakeNode] = {}
 @onready var table: TableNode = $"Map/Table"
 
+@onready var pause_menu: CenterContainer = $CanvasLayer/Pause
+@onready var win_menu: CenterContainer = $CanvasLayer/Win
+
+
+#TODO: Add functionality to "Continue" button on pause game
+#TODO: Add change label text on end the match
 func _ready():
 	generate_snakes()
 
@@ -24,6 +37,9 @@ func generate_snakes() -> void:
 		snake.can_move = false
 		snake.on_die.connect(_on_die_snake)
 		
+		if count < modulations.size():
+			snake.modulate = modulations[count]
+		
 		entities.add_child(snake)
 		players[count] = snake
 		count += 1
@@ -39,16 +55,18 @@ func resume() -> void:
 func _input(event: InputEvent) -> void:
 	
 	if ended:
-		
-		if event.is_action_pressed("ui_accept"):
-			get_tree().change_scene_to_packed(load("res://scenes/main/main.tscn"))
-			return
+		return
 	
-	if event.is_action_pressed("ui_accept"):
-		resume()
+	if not started:
+		if event.is_action_pressed("ui_accept"):
+			resume()
+			started = true
+		
+		return
 	
 	if event.is_action_pressed("pause"):
 		pause()
+		pause_menu.show()
 
 func set_snake_move_status(to: bool) -> void:
 	
@@ -64,6 +82,7 @@ func _process(_delta):
 	if players.size() <= 1:
 		ended = true
 		pause()
+		win_menu.show()
 	
 	for id in players:
 		var snake := players[id]
