@@ -4,11 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cq6cn12d38qls" path="res://content/table/wall.png" id="2_vldh7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vldh7"]
+resource_name = "grass"
 texture = ExtResource("1_ys0n2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ed0rr"]
+resource_name = "wall"
 texture = ExtResource("2_vldh7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0

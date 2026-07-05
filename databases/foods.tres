@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://fusedsntq6vj"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_8eoyv"]
+
+[resource]
+script = ExtResource("1_8eoyv")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([]),
+&"class_restrictions": Array[StringName]([&"FoodInfo"]),
+&"recursive_scan": true,
+&"scan_directories": Array[String](["res://content/food"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://cn48xgn1o0wmw": &"carrot",
+&"uid://degh6nn60royk": &"apple"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"apple": &"uid://degh6nn60royk",
+&"carrot": &"uid://cn48xgn1o0wmw"
+})
+_property_index = Dictionary[StringName, Dictionary]({
+&"name": {
+"Apple": {
+&"apple": true
+}
+}
+})

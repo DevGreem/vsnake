@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://clg8oil5ess70"]
+
+[ext_resource type="Script" uid="uid://b1v6gbp2obwb7" path="res://components/nodes/controls/containers/h_box_container/labeled_button.gd" id="1_qhpfm"]
+
+[node name="LabeledButton" type="HBoxContainer" unique_id=1628692696]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qhpfm")
+
+[node name="Label" type="Label" parent="." unique_id=587047528]
+layout_mode = 2
+text = "Test"
+
+[node name="Button" type="Button" parent="." unique_id=987412613]
+layout_mode = 2

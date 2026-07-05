@@ -2,21 +2,80 @@ extends Node2D
 
 class_name MatchNode
 
-@export var _time_per_turn := 1.0
-var current_time: float
 @export var entities: Node
+var ended := false
+
+var players: Dictionary[int, SnakeNode] = {}
+@onready var table: TableNode = $"Map/Table"
 
 func _ready():
-	current_time = _time_per_turn
+	generate_snakes()
 
-func _process(delta: float) -> void:
+func generate_snakes() -> void:
 	
-	current_time -= delta
+	var count := 0
 	
-	if current_time <= 0:
-		for entity in entities.get_children():
-			
-			if entity is SnakeNode:
-				entity.update_body()
+	for spawn in table.spawns:
+		var direction := table.spawns[spawn]
 		
-		current_time = _time_per_turn
+		spawn.y += 1
+		
+		var snake := SnakeNode.generate(spawn, count, table, direction)
+		snake.can_move = false
+		snake.on_die.connect(_on_die_snake)
+		
+		entities.add_child(snake)
+		players[count] = snake
+		count += 1
+
+func pause() -> void:
+	table.generate_food = false
+	set_snake_move_status(false)
+
+func resume() -> void:
+	table.generate_food = true
+	set_snake_move_status(true)
+
+func _input(event: InputEvent) -> void:
+	
+	if ended:
+		
+		if event.is_action_pressed("ui_accept"):
+			get_tree().change_scene_to_packed(load("res://scenes/main/main.tscn"))
+			return
+	
+	if event.is_action_pressed("ui_accept"):
+		resume()
+	
+	if event.is_action_pressed("pause"):
+		pause()
+
+func set_snake_move_status(to: bool) -> void:
+	
+	for id in players:
+		
+		var snake: SnakeNode = players.get(id)
+		
+		if snake:
+			snake.can_move = to
+
+func _process(_delta):
+	
+	if players.size() <= 1:
+		ended = true
+		pause()
+	
+	for id in players:
+		var snake := players[id]
+		
+		for id2 in players:
+			if id2 == id:
+				continue
+			
+			var snake2 := players[id2]
+			
+			if snake.body.front() in snake2.body:
+				snake.die()
+
+func _on_die_snake(id: int) -> void:
+	players.erase(id)

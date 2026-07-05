@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7kct2ajmk2l4"]
 
-[ext_resource type="Script" uid="uid://cqgc4mcoi22ov" path="res://components/nodes/controls/buttons/key_detector.gd" id="1_t3335"]
+[ext_resource type="Script" uid="uid://c80wrk33ll4ft" path="res://scenes/config_menu/config_menu.gd" id="1_t3335"]
 
 [node name="ConfigMenu" type="Control" unique_id=408256368]
 layout_mode = 3
@@ -9,16 +9,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=160041442]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=261993791]
-layout_mode = 2
-text = "Test"
-
-[node name="Button" type="Button" parent="HBoxContainer" unique_id=1392527665]
-layout_mode = 2
 script = ExtResource("1_t3335")
+
+[node name="Options" type="VBoxContainer" parent="." unique_id=201523968]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

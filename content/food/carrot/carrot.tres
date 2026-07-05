@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="FoodInfo" format=3 uid="uid://cn48xgn1o0wmw"]
+
+[ext_resource type="Script" uid="uid://dutcph1e7x8pt" path="res://resources/boost_info.gd" id="1_dxxnu"]
+[ext_resource type="Script" uid="uid://b3otvvj43srcf" path="res://resources/food_info.gd" id="1_vqe6u"]
+
+[sub_resource type="Resource" id="Resource_vqe6u"]
+script = ExtResource("1_dxxnu")
+boost_time = 5.0
+speed_boost = 0.5
+metadata/_custom_type_script = "uid://dutcph1e7x8pt"
+
+[resource]
+script = ExtResource("1_vqe6u")
+id = "carrot"
+name = "Carrot"
+boost = SubResource("Resource_vqe6u")
+metadata/_custom_type_script = "uid://b3otvvj43srcf"
