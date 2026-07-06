@@ -26,6 +26,26 @@ grow_vertical = 2
 [node name="Options" type="VBoxContainer" parent="CenterContainer" unique_id=1996033292]
 layout_mode = 2
 
+[node name="SnakeSpeed" type="HBoxContainer" parent="CenterContainer/Options" unique_id=1100721314]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Options/SnakeSpeed" unique_id=1171083253]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "The lower the time, the faster they go!"
+mouse_filter = 0
+theme_override_styles/normal = ExtResource("1_taxuf")
+text = "Snakes Speed:"
+horizontal_alignment = 2
+
+[node name="Value" type="SpinBox" parent="CenterContainer/Options/SnakeSpeed" unique_id=662231192]
+layout_mode = 2
+min_value = 0.01
+max_value = 256.0
+step = 0.01
+value = 0.09999999999999999
+alignment = 1
+
 [node name="MaxFood" type="HBoxContainer" parent="CenterContainer/Options" unique_id=1461655523]
 layout_mode = 2
 

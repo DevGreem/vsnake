@@ -13,6 +13,7 @@ const modulations: Array[Color] = [
 	Color.YELLOW
 ]
 var players: Dictionary[int, SnakeNode] = {}
+@export var default_snakes_speed := 0.1
 @onready var table: TableNode = $"Map/Table"
 
 @onready var pause_menu: CenterContainer = $CanvasLayer/Pause
@@ -33,7 +34,7 @@ func generate_snakes() -> void:
 		
 		spawn.y += 1
 		
-		var snake := SnakeNode.generate(spawn, count, table, direction)
+		var snake := SnakeNode.generate(spawn, count, table, direction, default_snakes_speed)
 		snake.can_move = false
 		snake.on_die.connect(_on_die_snake)
 		
